@@ -1,7 +1,8 @@
 """
     DataBase
+
 	Permanent Data Store :)
-	Prefer DataBase over Files :)
+		Prefer DataBase over Files :)
 	> 1. Security
 	> 2. Centralization
 	> 3. Operations | Time Optimized

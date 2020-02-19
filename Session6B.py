@@ -1,15 +1,14 @@
-#print(__name__)
+# print(__name__)
 
-def sqaure():
+def square():
     num = 20
-    print(">> num in sqaure is:", num)
-    sqaure()
+    print(">> num in square is:", num)
 
 def main():
     num = 10
     print(">> num in main is:", num)
+    square()
+    print(">> This is main's Last Statement")
 
-    sqaure()
-    print(">> This is main's last statement")
 # if __name__ == "__main__":
-#    main()
+#     main()

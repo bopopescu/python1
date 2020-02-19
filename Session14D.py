@@ -1,78 +1,61 @@
 # Types of Inheritance
-
 """
     1. Single Level
     A
     |
     B
-
     class A:
-    pass
-
-    class B:
-    pass
-
-
-    2. Multi-level
+        pass
+    class B(A):
+        pass
+    2. Multi Level
     A
     |
     B
     |
     C
-
     class A:
-    pass
-
+        pass
     class B(A):
-    pass
-
+        pass
     class C(B):
-    pass
-
+        pass
     3. Hierarchy
-        A
-       |
-    B    C
-     class A:
-    pass
-
-    class B(A):
-    pass
-
-    class C(A):
-    pass
-
-    4. Multiple
-    A    B
-       |
-       C
-
+         A
+         |
+      B    C
     class A:
-    pass
-
-    class B(A):
-    pass
-
-    class C(A,B):
-    pass
-
+        pass
+    class B(A)
+        pass
+    class C(A)
+        pass
+    4. Multiple
+    A   B
+      |
+      C
+    class A:
+        pass
+    class B
+        pass
+    class C(A, B)
+        pass
     5. Hybrid
-      Any combination of above
-
+        Any combination of above :)
 """
-
 
 class A:
 
+    # Property of A class
     a = 10
 
-    def __init__(self, b):
-        print(">> Object Constructed init of A:")
+    def __int__(self, b):
+        print(">> Object Constructed with init of A")
         self.b = b
 
     def show(self):
-         print(">>a is:",  A.a)
-         print(">>b is:", self.b)
+        print(">> a is:", A.a)
+        print(">> b is:", self.b)
 
 
 class B:
@@ -80,12 +63,12 @@ class B:
     x = 10
 
     def __init__(self, y):
-        print(">> Object Constructed init of B:")
+        print(">> Object Constructed with init of B")
         self.y = y
 
     def show(self):
-        print(">>x is:", B.x)
-        print(">>y is:", self.y)
+        print(">> x is:", B.x)
+        print(">> y is:", self.y)
 
 
 class C(A, B):
@@ -97,7 +80,9 @@ print(cRef.__dict__)
 
 cRef.show()
 
+# State of Confusion | Ambiguity | Discombobulated
+# Q1: which parent init should be used to construct object of C ? A
+# Q2: which parent show should be executed ? A
+# Q3: Is Multiple Inheritance Safe to use ? No
 
-
-
-
+# Explore in C++ | VTABLE VPTR # DEEP COPY and SHALLOW COPY

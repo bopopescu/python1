@@ -1,27 +1,30 @@
 """
-    Types of Recursion:
-
-     1.
-     2.
-     3. Tail Recursion
+    Types Of Recursion
+    1. Direct Recursion
+    2. Indirect Recusrion
+    3. Tail Recursion
 """
+
 def fun():
 
-    fun()                #direct recursion
+    fun()       # Direct Recursion
 
 
 def fun1():
 
-    fun2()
-
+    fun2();     # InDirect Recursion
 
 def fun2():
 
     fun1()
 
-def fun3():
 
-    fun1()
+def tailRec():
+    #...
+    #...
 
-# def tailRec():
+    tailRec()    # Last Statement is execution of function
 
+
+
+# HW: Implement Insertion Sort with Recursion

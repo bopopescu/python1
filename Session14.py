@@ -9,3 +9,5 @@ class CA:
         print(">> new CA Object Constructed")
 
 cRef = CA()
+
+# So, we need to maintain standardization while creating Objects

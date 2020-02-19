@@ -1,115 +1,95 @@
+# Extending Code
+# Decorate Object :) with a Helper
+
 """
-
 class Customer:
-
     def __init__(self, name, phone, email):
         self.name = name
         self.phone = phone
         self.email = email
-
     def showCustomer(self):
-        print("CUSTOMER: {} | {} | {}".format(self.name, self.phone, self.email ))
-
+        print("CUSTOMER: {} | {} | {}".format(self.name, self.phone, self.email))
     def showPrimeCustomer(self):
-        print("PRIME CUSTOMER: {} | {} | {}".format(self.name, self.phone, self.email, self.type))
-
-cRef1 = Customer("John", "+91 98760 73031", "john@example.com")
-cRef2 = Customer("fionna", "+91 99155 73031", "fionna@example.com")
-
+        print("PRIME CUSTOMER : {} | {} | {} | {}".format(self.name, self.phone, self.email, self.type))
+cRef1 = Customer("John", "+91 99999 88888", "john@example.com")
+cRef2 = Customer("Fionna", "+91 78901 88888", "fionna@example.com")
 cRef2.type = 1
-
 print(cRef1.__dict__)
 print(cRef2.__dict__)
-
 cRef1.showCustomer()
 cRef2.showCustomer()
-
 cRef1.showPrimeCustomer()
 cRef2.showPrimeCustomer()
-
 """
 
+
+# Inheritance : Extending :)
 """
 class Customer:
-
     def __init__(self, name, phone, email):
         self.name = name
         self.phone = phone
         self.email = email
-
     def showCustomer(self):
-        print("CUSTOMER: {} | {} | {}".format(self.name, self.phone, self.email ))
-
+        print("CUSTOMER: {} | {} | {}".format(self.name, self.phone, self.email))
+# Inheritance : Extending :)
 class PrimeCustomer(Customer):
-
-     def upgradeToPrime(self, customer):
-    # def __init__(self, customer):
+    def upgrageToPrime(self):
         self.prime = True
         self.videos = True
         self.music = True
-
-     def showPrimeCustomer(self):
+    def showPrimeCustomer(self):
         self.showCustomer()
-
         customerDetails = self.__dict__
+        keys = customerDetails.keys()
+        if "prime" in keys:
+            print("PRIME FEATURES: VIDEOS: {} | MUSIC: {}".format(self.videos, self.music))
+cRef1 = Customer("John", "+91 99999 88888", "john@example.com")
+cRef2 = Customer("Fionna", "+91 78901 88888", "fionna@example.com")
+print(cRef1.__dict__)
+PrimeCustomer.upgrageToPrime(cRef1)
+print(cRef1.__dict__)
+PrimeCustomer.showPrimeCustomer(cRef1)
+print()
+PrimeCustomer.upgrageToPrime(cRef2)
+PrimeCustomer.showPrimeCustomer(cRef2)
+"""
+
+class Customer:
+
+    def __init__(self, name, phone, email):
+        self.name = name
+        self.phone = phone
+        self.email = email
+
+    def showCustomer(self):
+        print("CUSTOMER: {} | {} | {}".format(self.name, self.phone, self.email))
+
+
+# Inheritance : Extending :)
+class PrimeCustomer(Customer):
+
+    def  __init__(self, customer):
+        customer.prime = True
+        customer.videos = True
+        customer.music = True
+
+    def showPrimeCustomer(self, customer):
+        customer.showCustomer()
+
+        customerDetails = customer.__dict__
         keys = customerDetails.keys()
 
         if "prime" in keys:
-            print("PRIME FEATURES: VIDEOS: {} | MUSIC: {}".format(self.video, self.music))
+            print("PRIME FEATURES: VIDEOS: {} | MUSIC: {}".format(customer.videos, customer.music))
 
 
-cRef1 = Customer("John", "+91 98760 73031", "john@example.com")
-cRef2 = Customer("fionna", "+91 99155 73031", "fionna@example.com")
+cRef1 = Customer("John", "+91 99999 88888", "john@example.com")
+primecRef1 = PrimeCustomer(cRef1)
+
 print(cRef1.__dict__)
+print(primecRef1.__dict__)
 
-PrimeCustomer.upgradeToPrime(cRef1)
-print(cRef1.__dict__)
+primecRef1.showPrimeCustomer(cRef1)
 
-PrimeCustomer.showCustomer(cRef1)
-print()
-
-PrimeCustomer.upgradeToPrime(cRef2)
-PrimeCustomer.showPrimeCustomer(cRef2)
-
-"""
-
-
-class McdBurger:
-
-    def __init__(self, name, price):
-        self.name = name
-        self.price = price
-
-    def showMcdBurger(self):
-            print("MCD BURGER: {} | {} | {}".format(self.name, self.price))
-
-
-class HappyMeal(McdBurger):
-
-    def upgradeToMeal(self):
-        self.burger = True
-        self.fries = True
-        self.price = True
-
-    def showHappyMeal(self):
-        self.showMcdBurger()
-
-        burgerrDetails = self.__dict__
-        keys = burgerrDetails.keys()
-
-        if "meal" in keys:
-            print("HAPPY MEAL INCLUDES: BURGER: {} | FRIES: {} | PRICE: {}".format(self.burger, self.fries, self.price))
-
-
-cRef1 = McdBurger("Burger", 50)
-cRef2 = HappyMeal("AlloTikkiBurger", "French Fries", 250)
-print(cRef1.__dict__)
-
-HappyMeal.upgradeToMeal(cRef1)
-print(cRef1.__dict__)
-
-HappyMeal.showHappyMeal(cRef1)
-print()
-
-HappyMeal.upgradeToMeal(cRef2)
-HappyMeal.showHappyMeal(cRef2)
+# Write Program for McDonalds Meal Upgrade :)
